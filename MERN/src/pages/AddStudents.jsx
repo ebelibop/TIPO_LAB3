@@ -1,79 +1,131 @@
-import { useState } from "react";
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export default function AddStudents({ information, setInformation }) {
-  const [name, setName] = useState("");
-  const [studentNumber, setStudentNumber] = useState("");
-  const [course, setCourse] = useState("");
-  const [yearSection, setYearSection] = useState("");
-  const [email, setEmail] = useState("");
-  const [address, setAddress] = useState("");
+  const navigate = useNavigate()
+  const [name, setName] = useState('')
+  const [studentNumber, setStudentNumber] = useState('')
+  const [course, setCourse] = useState('')
+  const [yearSection, setYearSection] = useState('')
+  const [email, setEmail] = useState('')
+  const [address, setAddress] = useState('')
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     const newStudent = {
-      id: information.length + 1, 
-      name: name,
-      studentNumber: studentNumber,
-      course: course,
-      yearSection: yearSection,
-      email: email,
-      address: address
+      id: information.length + 1,
+      name,
+      studentNumber,
+      course,
+      yearSection,
+      email,
+      address,
     }
 
-    setInformation([...information, newStudent]);
+    setInformation([...information, newStudent])
+    navigate('/students')
 
-
-    setName("");
-    setStudentNumber("");
-    setCourse("");
-    setYearSection("");
-    setEmail("");
-    setAddress("");
+    setName('')
+    setStudentNumber('')
+    setCourse('')
+    setYearSection('')
+    setEmail('')
+    setAddress('')
   }
 
   return (
-    <div>
-      <h1>Add Student</h1>
+    <section className="add-student">
+      <div className="add-student__card">
+        <div className="students__header students__header--compact">
+          <div>
+            <p className="home__eyebrow">Enrollment</p>
+            <h1 className="students__title">Add Student</h1>
+          </div>
+        </div>
 
-      <input className="border border-gray-300"
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Enter Name" />
+        <form className="add-student__form" onSubmit={handleSubmit}>
+          <div className="form-row">
+            <div className="field">
+              <label htmlFor="name">Full name</label>
+              <input
+                id="name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Enter name"
+                required
+              />
+            </div>
 
-      <input className="border border-gray-300"
-        type="text"
-        value={studentNumber}
-        onChange={(e) => setStudentNumber(e.target.value)}
-        placeholder="Enter Student Number" />
+            <div className="field">
+              <label htmlFor="studentNumber">Student number</label>
+              <input
+                id="studentNumber"
+                type="text"
+                value={studentNumber}
+                onChange={(e) => setStudentNumber(e.target.value)}
+                placeholder="Enter student number"
+                required
+              />
+            </div>
+          </div>
 
-      <input className="border border-gray-300"
-        type="text"
-        value={course}
-        onChange={(e) => setCourse(e.target.value)}
-        placeholder="Enter Course" />
+          <div className="form-row">
+            <div className="field">
+              <label htmlFor="course">Course</label>
+              <input
+                id="course"
+                type="text"
+                value={course}
+                onChange={(e) => setCourse(e.target.value)}
+                placeholder="Enter course"
+                required
+              />
+            </div>
 
-      <input className="border border-gray-300"
-        type="text"
-        value={yearSection}
-        onChange={(e) => setYearSection(e.target.value)}
-        placeholder="Enter Year & Section" />
+            <div className="field">
+              <label htmlFor="yearSection">Year &amp; section</label>
+              <input
+                id="yearSection"
+                type="text"
+                value={yearSection}
+                onChange={(e) => setYearSection(e.target.value)}
+                placeholder="Enter year & section"
+                required
+              />
+            </div>
+          </div>
 
-      <input className="border border-gray-300"
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Enter Email" />
+          <div className="field">
+            <label htmlFor="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter email"
+              required
+            />
+          </div>
 
-      <input className="border border-gray-300"
-        type="text"
-        value={address}
-        onChange={(e) => setAddress(e.target.value)}
-        placeholder="Enter Address" />
+          <div className="field">
+            <label htmlFor="address">Address</label>
+            <input
+              id="address"
+              type="text"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              placeholder="Enter address"
+              required
+            />
+          </div>
 
-      <button className="bg-green-500 hover:bg-green-700 text-white font-bold p-2 rounded"
-        onClick={handleSubmit}> Submit</button>
-    </div>
+          <button type="submit" className="primary-button primary-button--full">
+            Save Student
+          </button>
+        </form>
+      </div>
+    </section>
   )
 }

@@ -4,8 +4,10 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar__brand">
-        <span className="navbar__title">LAB 3 TIPO</span>
+        <span className="navbar__mark">TIPO</span>
+        <span className="navbar__title">Student Directory</span>
       </div>
+
       <div className="navbar__links">
         <Link to="/" className="navbar__link">
           Home
