@@ -6,10 +6,14 @@ import Students from './pages/Students.jsx'
 import StudentDetails from './pages/StudentDetails.jsx'
 import AddStudents from './pages/AddStudents.jsx'
 import studentData from './data/students.json'
+import Teachers from './pages/Teachers.jsx'
+import AddTeachers from './pages/AddTeachers.jsx'
+import TeacherDetails from './pages/TeacherDetails.jsx'
+import teacherData from './data/teachers.json'
 import './index.css'
 
 function App() {
-  const [information, setInformation] = useState(studentData)
+  const [information, setInformation] = useState(studentData, teacherData)
 
   return (
     <BrowserRouter>
@@ -20,6 +24,9 @@ function App() {
           <Route path="/students" element={<Students information={information} />} />
           <Route path="/students/:id" element={<StudentDetails information={information} />} />
           <Route path="/addStudent" element={<AddStudents information={information} setInformation={setInformation} />} />
+          <Route path="/teacher" element={<Teachers information={information} />} />
+          <Route path="/teacher/:id" element={<TeacherDetails information={information} />} />
+          <Route path="/addTeacher" element={<AddTeachers information={information} setInformation={setInformation} />} />
         </Routes>
       </main>
     </BrowserRouter>
@@ -27,3 +34,4 @@ function App() {
 }
 
 export default App
+

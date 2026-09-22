@@ -13,7 +13,6 @@ export default function Students({ information }) {
         <Link to="/addStudent" className="primary-button">
           Add Student
         </Link>
-
       </div>
 
       <p className="students__count">{information.length} student(s) listed</p>

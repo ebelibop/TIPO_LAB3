@@ -16,6 +16,9 @@ function Home() {
         <Link to="/addStudent" className="secondary-button">
           Add a student
         </Link>
+        <Link to="/addTeacher" className="secondary-button">
+          Add a teacher
+        </Link>
       </div>
 
       <div className="home__stats" aria-label="Summary stats">

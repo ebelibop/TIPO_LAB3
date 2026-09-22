@@ -15,6 +15,9 @@ function Navbar() {
         <Link to="/students" className="navbar__link">
           Students
         </Link>
+        <Link to="/teacher" className="navbar__link">
+          Teachers
+        </Link>
       </div>
     </nav>
   )
