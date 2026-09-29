@@ -1,4 +1,4 @@
-import { useState } from 'react'
+/*import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 import Home from './pages/Home.jsx'
@@ -33,5 +33,30 @@ function App() {
   )
 }
 
-export default App
+export default App*/
 
+import { useEffect, useState } from "react";
+
+export default function App()  {
+
+  const [ count, setCount ] = useState (0);
+
+  useEffect (() => {
+
+    fetch("http://localhost:5000/api/students")
+      .then(response => response.json())
+      .then(data => {
+        setStudents(data);
+
+      });
+
+  }, []);
+
+return (
+  <div>
+    
+  </div>
+)
+
+ 
+}
