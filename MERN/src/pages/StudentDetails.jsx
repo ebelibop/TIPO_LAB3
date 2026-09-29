@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 
-function StudentDetails({ information }) {
+function StudentDetails({ student }) {
   const { id } = useParams()
   const student = information.find((s) => s.id === Number(id))
 

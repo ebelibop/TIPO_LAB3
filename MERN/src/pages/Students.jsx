@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import Student from '../components/Student.jsx'
+import Student from '../components/Student'
 
-export default function Students({ information }) {
+export default function Students({ students }) {
   return (
     <section className="students">
       <div className="students__header">
@@ -15,10 +15,10 @@ export default function Students({ information }) {
         </Link>
       </div>
 
-      <p className="students__count">{information.length} student(s) listed</p>
+      <p className="students__count">{students.length} student(s) listed</p>
 
       <div className="students__grid">
-        {information.map((student) => (
+        {students.map((student) => (
           <Student key={student.id} student={student} />
         ))}
       </div>
